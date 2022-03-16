@@ -3,6 +3,13 @@ import numpy as np
 from SLCfiles.ShareSettings import SCASettings
 
 
+def ExtractCost(li):
+    r = []
+    for i in li:
+        r.append(i["Cost"])
+    return r
+
+
 def Takhsis(League=None):
     nTeam = SCASettings["nTeam"]
     nMainPlayer = SCASettings["nMainPlayer"]
@@ -12,20 +19,21 @@ def Takhsis(League=None):
     for jj in np.arange(0, nTeam):
         MainPlayer[jj] = League[jj]["MPlayer"]
         RvrsPlayer[jj] = League[jj]["RPlayer"]
-    
+
     Player = np.array(MainPlayer+RvrsPlayer)
-    #print("Player:",Player[0])
-    PlayerCost = np.array([Player[0]["Cost"], Player[1]["Cost"]])
-    print("xXxxxxxxxxxxxxxxx:",PlayerCost)
-    a1, SortOrder = sorted(PlayerCost)
-    Player = Player(SortOrder)
+    print("n", nTeam, "x", len(Player))
+    # print(Player[0][0])
+    PlayerCost = np.array(list(map(ExtractCost, Player)))
+    a1=PlayerCost.sort(axis=1)
+    SortOrder=PlayerCost.argsort(axis=1)
+    Player = Player[SortOrder]
     kk = 0
     for jj in np.arange(0, nTeam):
-        kk = kk + nMainPlayer
+        kk = nMainPlayer
         League[jj]["MPlayer"] = np.transpose(
-            Player(np.arange(kk - nMainPlayer + 1, kk+1)))
-        kk = kk + nReservePlayer
+            Player[np.arange(0 , kk)])
+        kk = nReservePlayer
         League[jj]["RPlayer"] = np.transpose(
-            Player(np.arange(kk - nReservePlayer + 1, kk+1)))
+            Player[np.arange(0, kk)])
 
     return League
