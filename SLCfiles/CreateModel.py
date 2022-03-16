@@ -5,6 +5,7 @@ def CreateModel():
     v = np.array([55,10,47,5,4,50,8,61,85,87])
     n = np.asarray(w).size
     W = 269
+    model={"n":n,"v":v,"w":w,"W":W}
     model.n = n
     model.v = v
     model.w = w

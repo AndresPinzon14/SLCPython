@@ -1,5 +1,6 @@
 import numpy as np
-    
+import scipy.stats as stats
+
 def WinnerFunctionMain5(League = None,Winner = None,nEval = None): 
     global De
     global ProblemSettings
@@ -13,14 +14,14 @@ def WinnerFunctionMain5(League = None,Winner = None,nEval = None):
     nReservePlayer = SCASettings.nReservePlayer
     CostFunction = ProblemSettings.CostFunction
     for i in np.arange(1,nMainPlayer+1).reshape(-1):
-        A = randperm(nMainPlayer)
+        A = np.random.permutation(nMainPlayer)
         A[A == i] = []
         y1 = League(1,1).MPlayer(1,1).Position
         y2 = League(Winner,1).MPlayer(1,1).Position
         y3 = League(Winner,1).MPlayer(A(end()),1).Position
         y4 = League(Winner,1).MPlayer(A(end() - 1),1).Position
         x = League(Winner,1).MPlayer(i,1).Position
-        beta = unifrnd(0.2,0.8,VarSize)
+        beta = stats.uniform.rvs(0.2,0.8,size=VarSize)
         rq = x + np.multiply(beta,(y1 - y3))
         for i2 in np.arange(1,nVar+1).reshape(-1):
             __,index = np.amin(np.abs(De - rq(i2)))
