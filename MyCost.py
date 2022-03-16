@@ -4,5 +4,3 @@ def MyCost(x = None):
     
     z = sum(x ** 2)
     return z
-    
-    return z

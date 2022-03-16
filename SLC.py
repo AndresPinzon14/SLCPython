@@ -3,8 +3,9 @@
 
 import numpy as np
 import matplotlib.pyplot as plt
-clear('all')
-close_('all')
+
+from MyCost import MyCost
+from SLCfiles.CreateInitialLeague import CreateInitialLeague
 global De,nVar
 NumberOfFunctioanEvaluations = 200000
 ## Problem Definition
@@ -12,7 +13,6 @@ CostFunction = lambda x = None: MyCost(x)
 
 De = np.array([0,1,2,3,4,5,6])
 
-addpath('SLCfiles')
 nVar = 200
 
 ## SLC Parameters
@@ -33,8 +33,7 @@ MaxIt = 10 ** 9
 
 VarSize = np.array([1,nVar])
 
-##
-ShareSettings
+##ShareSettings
 tedad = NumberOfFunctioanEvaluations
 ## Initialization
 League = CreateInitialLeague()
