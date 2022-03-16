@@ -1,6 +1,6 @@
-    
+import numpy as np    
 def MyCost(x = None): 
     #z=sum(-x.*sin(sqrt(abs(x))));
-    
-    z = sum(x ** 2)
+    x=np.array(x)
+    z = np.sum( x**2)
     return z

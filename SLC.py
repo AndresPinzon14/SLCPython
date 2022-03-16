@@ -14,7 +14,7 @@ NumberOfFunctioanEvaluations = 200000
 # Problem Definition
 def CostFunction(x=None): return MyCost(x)
 
-
+glob.ProblemSettings["CostFunction"] = CostFunction
 glob.ProblemSettings["De"] = np.array([0, 1, 2, 3, 4, 5, 6])
 
 glob.ProblemSettings["nVar"] = 200
@@ -35,7 +35,7 @@ glob.ProblemSettings["VarMax"] = np.asarray(glob.ProblemSettings["De"]).size
 nEval = 0
 MaxIt = 10 ** 9
 
-VarSize = np.array([1, glob.ProblemSettings["nVar"]])
+glob.ProblemSettings["VarSize"] = np.array([1, glob.ProblemSettings["nVar"]])
 
 # ShareSettings
 tedad = NumberOfFunctioanEvaluations

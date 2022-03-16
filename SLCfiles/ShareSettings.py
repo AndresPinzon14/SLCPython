@@ -11,3 +11,4 @@ SCASettings["nTeam"] = None
 SCASettings["nTeamImport"] = None
 SCASettings["nMainPlayer"] = None
 SCASettings["nReservePlayer"] = None
+#import SLCfiles.ShareSettings as glob
