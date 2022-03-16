@@ -7,4 +7,6 @@ model={"n":n,"v":v,"w":w,"W":W}
 xc = [None]*5
 
 
-print(xc)
+print(w[1:-1])
+
+
