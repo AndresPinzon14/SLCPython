@@ -1,12 +1,11 @@
 import numpy as np
 import numpy as np
-from ProbabilityHost import ProbabilityHost
-from Imitation import Imitation
-from ProbabilityHost import ProbabilityHost
-from UpdateTotalCost import UpdateTotalCost
+from SLCfiles.Imitation import Imitation
+from SLCfiles.ProbabilityHost import ProbabilityHost
+from SLCfiles.UpdateTotalCost import UpdateTotalCost
+import SLCfiles.ShareSettings as glob
 def Competition(League = None,nEval = None): 
-    global SCASettings
-    nTeam = SCASettings.nTeam
+    nTeam = glob.SCASettings["nTeam"]
     for ii in np.arange(1,nTeam - 2+1).reshape(-1):
         for jj in np.arange(ii + 1,nTeam+1).reshape(-1):
             Winner,Loser = ProbabilityHost(League,ii,jj)

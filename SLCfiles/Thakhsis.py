@@ -1,10 +1,11 @@
 import numpy as np
+
+from SLCfiles.ShareSettings import SCASettings
     
 def Takhsis(League = None): 
-    global SCASettings
-    nTeam = SCASettings.nTeam
-    nMainPlayer = SCASettings.nMainPlayer
-    nReservePlayer = SCASettings.nReservePlayer
+    nTeam = SCASettings["nTeam"]
+    nMainPlayer = SCASettings["nMainPlayer"]
+    nReservePlayer = SCASettings["nReservePlayer"]
     MainPlayer=[None]*nTeam
     RvrsPlayer=[None]*nTeam
     for jj in np.arange(1,nTeam+1).reshape(-1):

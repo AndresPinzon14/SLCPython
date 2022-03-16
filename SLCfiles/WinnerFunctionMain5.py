@@ -1,18 +1,18 @@
 import numpy as np
 import scipy.stats as stats
 
+from SLCfiles.ShareSettings import ProblemSettings, SCASettings
+
 def WinnerFunctionMain5(League = None,Winner = None,nEval = None): 
-    global De
-    global ProblemSettings
-    global SCASettings
-    nVar = ProblemSettings.nVar
-    VarSize = ProblemSettings.VarSize
-    VarMin = ProblemSettings.VarMin
-    VarMax = ProblemSettings.VarMax
-    De = ProblemSettings.De
-    nMainPlayer = SCASettings.nMainPlayer
-    nReservePlayer = SCASettings.nReservePlayer
-    CostFunction = ProblemSettings.CostFunction
+    
+    nVar = ProblemSettings["nVar"]
+    VarSize = ProblemSettings["VarSize"]
+    VarMin = ProblemSettings["VarMin"]
+    VarMax = ProblemSettings["VarMax"]
+    De = ProblemSettings["De"]
+    nMainPlayer = SCASettings["nMainPlayer"]
+    nReservePlayer = SCASettings["nReservePlayer"]
+    CostFunction = ProblemSettings["CostFunction"]
     for i in np.arange(1,nMainPlayer+1).reshape(-1):
         A = np.random.permutation(nMainPlayer)
         A[A == i] = []

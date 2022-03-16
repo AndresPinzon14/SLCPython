@@ -1,9 +1,10 @@
 import numpy as np
+
+from SLCfiles.ShareSettings import SCASettings
     
 def UpdateTotalCost(League = None): 
-    global SCASettings
-    nTeam = SCASettings.nTeam
-    nMainPlayer = SCASettings.nMainPlayer
+    nTeam = SCASettings["nTeam"]
+    nMainPlayer = SCASettings["nMainPlayer"]
     for k in np.arange(1,nTeam+1).reshape(-1):
         x=[None]*nMainPlayer
         for jj in np.arange(1,nMainPlayer+1).reshape(-1):
@@ -12,4 +13,3 @@ def UpdateTotalCost(League = None):
     
     return League
     
-    return League

@@ -1,13 +1,13 @@
-global ProblemSettings
-ProblemSettings.CostFunction = CostFunction
-ProblemSettings.nVar = nVar
-ProblemSettings.VarSize = VarSize
-ProblemSettings.VarMin = VarMin
-ProblemSettings.VarMax = VarMax
-ProblemSettings.De = De
-global SCASettings
-SCASettings.MaxIt = MaxIt
-SCASettings.nTeam = nTeam
-SCASettings.nTeamImport = nTeamImport
-SCASettings.nMainPlayer = nMainPlayer
-SCASettings.nReservePlayer = nReservePlayer
+ProblemSettings= {}
+ProblemSettings["CostFunction"] = None
+ProblemSettings["nVar"] = None
+ProblemSettings["VarSize"] = None
+ProblemSettings["VarMin"] = None
+ProblemSettings["VarMax"] = None
+ProblemSettings["De"] = None
+SCASettings={}
+SCASettings["MaxIt"] = None
+SCASettings["nTeam"] = None
+SCASettings["nTeamImport"] = None
+SCASettings["nMainPlayer"] = None
+SCASettings["nReservePlayer"] = None

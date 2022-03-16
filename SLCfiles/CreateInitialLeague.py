@@ -1,19 +1,19 @@
 import numpy as np
 import scipy.stats as stats
+from SLCfiles.ShareSettings import ProblemSettings
+from SLCfiles.ShareSettings import SCASettings
 from SLCfiles.Thakhsis import Takhsis
 from SLCfiles.UpdateTotalCost import UpdateTotalCost
 def CreateInitialLeague(): 
-    global ProblemSettings
-    global SCASettings
-    CostFunction = ProblemSettings.CostFunction
-    VarSize = ProblemSettings.VarSize
-    VarMin = ProblemSettings.VarMin
-    VarMax = ProblemSettings.VarMax
-    nVar = ProblemSettings.nVar
-    De = ProblemSettings.De
-    nTeam = SCASettings.nTeam
-    nMainPlayer = SCASettings.nMainPlayer
-    nReservePlayer = SCASettings.nReservePlayer
+    CostFunction = ProblemSettings["CostFunction"]
+    VarSize = ProblemSettings["VarSize"]
+    VarMin = ProblemSettings["VarMin"]
+    VarMax = ProblemSettings["VarMax"]
+    nVar = ProblemSettings["nVar"]
+    De = ProblemSettings["De"]
+    nTeam = SCASettings["nTeam"]
+    nMainPlayer = SCASettings["nMainPlayer"]
+    nReservePlayer = SCASettings["nReservePlayer"]
     for j in np.arange(1,nTeam+1).reshape(-1):
         for i in np.arange(1,nMainPlayer+1).reshape(-1):
             XY = np.round(stats.uniform.rvs(VarMin,VarMax,size=VarSize))

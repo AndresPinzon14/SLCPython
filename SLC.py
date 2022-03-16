@@ -8,34 +8,34 @@ from MyCost import MyCost
 from SLCfiles.CreateInitialLeague import CreateInitialLeague
 from SLCfiles.Competition import Competition
 from SLCfiles.Thakhsis import Takhsis
+import SLCfiles.ShareSettings as glob
 
-global De, nVar
 NumberOfFunctioanEvaluations = 200000
 # Problem Definition
 def CostFunction(x=None): return MyCost(x)
 
 
-De = np.array([0, 1, 2, 3, 4, 5, 6])
+glob.ProblemSettings["De"] = np.array([0, 1, 2, 3, 4, 5, 6])
 
-nVar = 200
+glob.ProblemSettings["nVar"] = 200
 
 # SLC Parameters
-nTeam = 10
+glob.SCASettings["nTeam"] = 10
 
-nMainPlayer = 10
+glob.SCASettings["nMainPlayer"] = 10
 
-nReservePlayer = 10
+glob.SCASettings["nReservePlayer"] = 10
 
-nTeamImport = 5
-VarMin = 1
+glob.SCASettings["nTeamImport"] = 5
+glob.ProblemSettings["VarMin"] = 1
 
-VarMax = np.asarray(De).size
+glob.ProblemSettings["VarMax"] = np.asarray(glob.ProblemSettings["De"]).size
 
 ##
 nEval = 0
 MaxIt = 10 ** 9
 
-VarSize = np.array([1, nVar])
+VarSize = np.array([1, glob.ProblemSettings["nVar"]])
 
 # ShareSettings
 tedad = NumberOfFunctioanEvaluations
