@@ -96,8 +96,8 @@ def WinnerFunctionMain5(League = None,Winner = None,nEval = None):
         PlayerCost = np.array(list(map(ExtractCost,Player)))
         a1=PlayerCost.sort(axis=1)
         SortOrder=PlayerCost.argsort(axis=1)
-        Player = Player[(0)]
-        League["Winner"]["MPlayer"] = Player[(np.arange(0,nMainPlayer))]
+        Player = Player[(0)]        
+        League[(Winner)]["MPlayer"] = Player[(np.arange(0,nMainPlayer))]
     
     return League,nEval
     
